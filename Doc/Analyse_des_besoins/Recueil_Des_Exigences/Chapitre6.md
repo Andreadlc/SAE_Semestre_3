@@ -1,16 +1,17 @@
 # VI. Recours humain, questions juridiques, politiques, organisationnelles
 
-## (a) Recours humain
-L’assistance de l’administrateur web pour la gestion des comptes et de l’administrateur système pour les questions techniques.
+## (a) Recours Humain
+Administration : Un administrateur système et un administrateur web pour la gestion continue.
 
-## (b) Exigences juridiques et politiques
-Respect des droits des utilisateurs en matière de sécurité et de confidentialité des données.
+## (b) Exigences Juridiques et Politiques
+Conformité RGPD si applicable, bien que limitée par la nature du projet.
 
-## (c) Conséquences humaines de la réalisation du système
-Amélioration des compétences des étudiants en développement, gestion de serveur, et administration de base de données.
+## (c) Conséquences Humaines
+Formation minimale nécessaire pour les utilisateurs de la plateforme.
 
-## (d) Besoins en formation
-Les étudiants devront se former au déploiement sur Raspberry Pi, à la sécurisation des accès SSH, et à la gestion de bases de données MySQL.
+## (d) Besoins en Formation
+Formation des administrateurs pour l’utilisation des interfaces de gestion et du SSH sécurisé.
 
-## (e) Hypothèses et dépendances affectant l’environnement humain
-Dépendance à la configuration réseau de l’IUT pour les accès SSH et l’interaction avec le serveur.
+## (e) Hypothèses et Dépendances
+Dépendance à l’environnement de développement sur Raspberry Pi, accès réseau pour l’installation et la gestion.
+
