@@ -1,5 +1,7 @@
 # II. Terminologie employée / Glossaire
 
+Lors de ce recueil sur les besoins de notre plateforme, nous avons pu utiliser un ensemble de termes assez spécifique sans forcément les expliquer très clairement. L'objectif de ce chapitre est d'éclaircir au maximum l'ensemble de ces mots afin de permettre une compréhension complète du recueil.
+
 Les terminologies employées dans notre projet comprennent des termes tels que "module de cacul"
 "raspberry pi", "chiffrement", "RGPD", "SSH", "Apache", "MariaDB"
 
