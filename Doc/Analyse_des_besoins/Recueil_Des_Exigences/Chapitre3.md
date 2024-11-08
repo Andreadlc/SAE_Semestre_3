@@ -1,10 +1,14 @@
 # III. Les cas d’utilisation
 
 ## (a) Acteurs principaux et leurs objectifs généraux
-- **Administrateur système** : Suivre les activités de la plateforme via des journaux d’activité.
-- **Administrateur web** : Gérer les comptes utilisateurs et l’historique des utilisateurs inscrits.
-- **Utilisateur inscrit** : Utiliser les modules de calcul et accéder à son historique de calculs.
-- **Visiteur** : Consulter les informations générales de la plateforme.
+
+| **Acteur Principal**        | **Objectifs Généraux**                                              |
+|-----------------------------|---------------------------------------------------------------------|
+| **Administrateur système**   | Suivre les activités de la plateforme via des journaux d’activité.  |
+| **Administrateur web**       | Gérer les comptes utilisateurs et l’historique des utilisateurs inscrits. |
+| **Utilisateur inscrit**     | Utiliser les modules de calcul et accéder à son historique de calculs. |
+| **Visiteur**                 | Consulter les informations générales de la plateforme.             |
+
 
 ## (b) Cas d’utilisation métier (Opérations métiers)
 
