@@ -1,4 +1,6 @@
 # III. Les cas d’utilisation
+## Schema
+![Diagramme des exigences](/Doc/Analyse_des_besoins/Recueil_Des_Exigences/schema.png)
 
 ## (a) Acteurs principaux et leurs objectifs généraux
 
