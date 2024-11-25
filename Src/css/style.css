@@ -1,0 +1,300 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("./fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lobster";
+    src: url("./fonts/Lobster/Lobster-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Cutive Mono";
+    src: url("./fonts/Cutive_Mono/CutiveMono-Regular.ttf");
+}
+
+/* Classes pour les polices spécifiques */
+.Cuti, .cuti2 {
+    font-family: "Cutive Mono", monospace;
+}
+
+.lobster2, .lobster {
+    font-family: "Lobster", cursive;
+}
+
+.raleway2, .raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+
+
+/* Styles de base */
+body {
+    margin: 0;
+    background-color: #D2E0FB;
+    font-family: "Raleway", sans-serif;
+}
+
+header {
+    display: flex;
+    background-color: #8EACCD;
+    align-items: center;
+    padding: 10px;
+}
+
+header > img {
+    margin-left: 5%;
+    width: 64px;
+    height: 64px;
+}
+
+header > h1 {
+    font-size: 2.5rem;
+    margin-left: 5%;
+    font-family: "Lobster", cursive;
+}
+
+nav {
+    width: 100%;
+    background-color: #E2DAD6;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    font-family: "Raleway", sans-serif;
+    display: block;
+    text-decoration: none;
+    color: #36541b;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    border-top: 5px solid transparent;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+nav a:hover {
+    color: #4D3D3D;
+    border-top: 5px solid #E2DAD6;
+}
+
+nav ul li:hover .sous {
+    display: block;
+}
+
+.sous {
+    display: none;
+    background-color: #FEF9D9;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sous li {
+    width: 100%;
+    text-align: center;
+}
+
+.deroulant > a::after {
+    content: " ▼";
+    font-size: 12px;
+}
+
+main {
+    padding: 20px 2%;
+}
+
+main > h2 {
+    margin-top: 50px;
+    font-family: "Lobster", cursive;
+}
+
+main > .ticket {
+    border-radius: 15px;
+    background-color: #eaeaea;
+    padding: 25px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    background-color: #8EACCD;
+    color: #ffbe8f;
+    padding: 20px;
+}
+
+footer > p {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+/* Style général pour le formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style pour les labels */
+form label {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Style pour les champs d'entrée */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Focus sur les champs */
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+    border-color: #8EACCD;
+    outline: none;
+}
+
+/* Style pour le bouton */
+form input[type="submit"] {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    background-color: #8EACCD;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Effet hover sur le bouton */
+form input[type="submit"]:hover {
+    background-color: #6c92b7;
+}
+
+/* Style pour le fieldset */
+fieldset {
+    border: 2px solid #8EACCD;
+    border-radius: 8px;
+    padding: 20px;
+    margin: auto;
+}
+
+/* Style pour la légende */
+legend {
+    font-family: "Lobster", cursive;
+    font-size: 1.5rem;
+    color: #36541b;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+    }
+
+    legend {
+        font-size: 1.25rem;
+    }
+
+    form input[type="submit"] {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Média queries pour rendre la page responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header > img {
+        margin: 0 auto;
+        width: 48px;
+        height: 48px;
+    }
+
+    header > h1 {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    main > .ticket {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header > h1 {
+        font-size: 1.75rem;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+
+    main > h2 {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        font-size: 0.875rem;
+    }
+}
