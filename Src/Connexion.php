@@ -53,7 +53,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
 
             // Limiter les tentatives de connexion
             if ($_SESSION['i'] >= 3) {
-                echo "Vous avez atteint le nombre maximal de tentatives de connexion.";
+                echo "Êtes-vous sûr de posséder un compte ?";
                 session_destroy();
                 exit();
             }
@@ -61,7 +61,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             // Vérification si l'utilisateur et le mot de passe existent
             if (!$rowu || !$rowp) {
                 $_SESSION['i']++; // Incrémenter les tentatives
-                echo "Nom d'utilisateur ou mot de passe incorrect. Tentatives restantes : " . (3 - $_SESSION['i']);
+                echo "Nom d'utilisateur ou mot de passe incorrect.";
             } else {
                 $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
                 $_SESSION['username'] = $uname; // Enregistre le nom d'utilisateur dans la session
