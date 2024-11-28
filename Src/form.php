@@ -3,13 +3,13 @@
 ?>
 <form method="post">
     <label for="mu">Espérance (μ) :</label>
-    <input type="number" step="any" name="mu" required><br>
+    <input type="number" step="any" name="mu" required min="0"><br>
 
     <label for="lambda">Forme (λ) :</label>
-    <input type="number" step="any" name="lambda" required><br>
+    <input type="number" step="any" name="lambda" required min="0"><br>
 
     <label for="t">Valeur t (P(X ≤ t)) :</label>
-    <input type="number" step="any" name="t" required><br>
+    <input type="number" step="any" name="t" required min="0"><br>
 
     <label for="n">Nombre de valeurs (n) :</label>
     <input type="number" name="n" min="1" required><br>

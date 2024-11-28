@@ -1,6 +1,6 @@
 <?php if (isset($result) && isset($lambda) && isset($mean) && isset($std_dev) && isset($mu) && isset($t)): ?>
     <h2>Résultats</h2>
-    <table border="1">
+    <table>
         <tr>
             <th>Probabilité P(X ≤ t)</th>
             <th>λ</th>

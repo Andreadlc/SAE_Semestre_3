@@ -150,6 +150,23 @@ footer > p {
     font-family: "Raleway", sans-serif;
 }
 
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid darkgray;
+}
+
+th {
+    background-color: #8EACCD;
+    color: white;
+}
+
 /* Style général pour le formulaire */
 form {
     display: flex;
