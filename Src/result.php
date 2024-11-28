@@ -8,10 +8,10 @@
             <th>σ (écart-type)</th>
         </tr>
         <tr>
-            <td><?php echo number_format($result, 6); ?></td>
+            <td><?php echo number_format($result, 2); ?></td>
             <td><?php echo $lambda; ?></td>
             <td><?php echo $mean; ?></td>
-            <td><?php echo number_format($std_dev, 6); ?></td>
+            <td><?php echo number_format($std_dev, 2); ?></td>
         </tr>
     </table>
     <canvas id="densityChart" width="400" height="200"></canvas>
