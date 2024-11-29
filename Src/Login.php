@@ -14,8 +14,7 @@ echo "<fieldset><legend>Authentification</legend>
 <label>Mot de passe</label>
 <input type='password' name='password' placeholder='Mot de passe'>
 <input type='submit' name='ok' value='valider'>
-</form>
-    
+<br>
 </form></fieldset>";
 
 

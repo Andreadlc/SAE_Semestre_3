@@ -1,5 +1,5 @@
 <?php
-include("fonction_moudule_math.php");
+include("fonction_module_math.php");
 
 
 
