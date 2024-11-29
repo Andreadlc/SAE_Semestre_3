@@ -66,7 +66,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
                 $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
                 $_SESSION['username'] = $uname; // Enregistre le nom d'utilisateur dans la session
                 $_SESSION['success_message_connexion'] = "Connexion reussite.";
-                header("Location: Login.php"); // Redirige l'utilisateur vers la page utilisateur
+                header("Location: accueil.php"); // Redirige l'utilisateur vers la page utilisateur
                 exit();
             }
         } else {
