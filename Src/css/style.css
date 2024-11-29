@@ -60,7 +60,9 @@ nav {
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour plus de style */
 }
+
 
 nav a {
     font-family: "Raleway", sans-serif;
@@ -85,6 +87,7 @@ nav ul li {
     position: relative;
     flex: 1;
     text-align: center;
+    border: 2px solid #898b95; /* Contour de 2px avec couleur bleue */
 }
 
 nav a:hover {
