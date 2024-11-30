@@ -31,7 +31,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
 
     $dsureql = "SELECT * FROM $table WHERE login = '$uname' AND mdp = '$password_md5'"; // Requête de vérification des données
 
-    $deleteql = "DELETE FROM $table WHERE login = '$uname' AND mdp = '$password_md5'"; // Requête de suppression
+    $deleteql = "DELETE FROM $table WHERE login = '$uname' AND mdp = '$password_md5'"; // Requête de desinscription
 
     // Exécution des requêtes de vérification
     $resultd = mysqli_query($co, $dsureql);
