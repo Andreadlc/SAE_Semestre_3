@@ -26,7 +26,8 @@ echo "<fieldset><legend>Inscription</legend>
 <input type='text' name='uname' placeholder='Nom utilisateur'>
     <label>Mot de passe</label>
 <input type='password' name='password'  placeholder='Mot de passe'>
-    <input type='submit' name='ok' value='créer le compte'>
+    <input type='submit' name='ok' value='Créer le compte'>
+    <br>
 </form></fieldset>";
 
 

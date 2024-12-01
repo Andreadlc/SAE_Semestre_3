@@ -39,7 +39,7 @@ echo "<fieldset><legend>Désinscription</legend>
 <input type='text' name='username' placeholder='Nom utilisateur'>
 <label>Mot de passe</label>
 <input type='password' name='password' placeholder='Mot de passe'>
-<input type='submit' name='ok' value='se connecter'>
+<input type='submit' name='ok' value='Supprimer le compte'>
 <br>
 </form></fieldset>";
 

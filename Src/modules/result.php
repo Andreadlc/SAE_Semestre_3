@@ -2,6 +2,7 @@
 
 
 
+    <br><br>
     <div style="width: 80%; max-width: 800px; height: 400px; margin: auto;">
         <canvas id="densityChart"></canvas>
     </div>
@@ -76,7 +77,7 @@
         });
     </script>
 
-
+    <br><br><br>
     <fieldset>
         <legend>Résultats</legend>
 
