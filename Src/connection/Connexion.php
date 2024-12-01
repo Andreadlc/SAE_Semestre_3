@@ -23,6 +23,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
     if ($uname == 'admin' && $password == 'admin') {
         $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
         $_SESSION['username'] = 'admin'; // Facultatif : enregistrez l'username de l'utilisateur
+        $_SESSION['success_message_connexion'] = "  Administrateur connecté";
         header('Location: ../admin_reseau/historique_connexion.php');
         exit();
     }
