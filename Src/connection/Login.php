@@ -12,6 +12,8 @@ if (isset($_SESSION['success_message_connexion'])) {
 }
 
 
+echo "<br><br><br>";
+
 echo "<fieldset><legend>Authentification</legend>
 <form method='post' action='Connexion.php'>
 <label>Nom d'utilisateur</label>

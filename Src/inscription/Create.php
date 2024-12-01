@@ -18,7 +18,9 @@ if (isset($_SESSION['error_message'])) {
 }
 
 
-echo "<fieldset><legend>Inscritpion</legend>
+echo "<br><br><br>";
+
+echo "<fieldset><legend>Inscription</legend>
 <form method='post' action='Insertion.php'>
 <label>Nom d'utilisateur</label>
 <input type='text' name='uname' placeholder='Nom utilisateur'>

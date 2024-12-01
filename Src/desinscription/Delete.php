@@ -31,14 +31,18 @@ form p{
 </style>";
 
 
+echo "<br><br><br>";
+
 echo "<fieldset><legend>Désinscription</legend>
 <form method='post' action='Suppression.php'>
-<label>Username</label>
-<input type='text' name='username'>
-    <label>Password</label>
-<input type='password' name='password'>
-    <input type='submit' name='ok' value='supprimer le compte'>
+<label>Nom d'utilisateur</label>
+<input type='text' name='username' placeholder='Nom utilisateur'>
+<label>Mot de passe</label>
+<input type='password' name='password' placeholder='Mot de passe'>
+<input type='submit' name='ok' value='se connecter'>
+<br>
 </form></fieldset>";
+
 
 
 include("../html/footer.html");
