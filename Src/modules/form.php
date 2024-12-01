@@ -1,6 +1,9 @@
 <?php
 
 ?>
+
+
+
 <fieldset>
     <legend>Calculateur de probabilité - Loi inverse-gaussienne</legend>
     <form method="post">

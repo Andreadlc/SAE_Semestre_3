@@ -1,6 +1,10 @@
 <?php
-include("header.html");
-include("nav_bar.php");
+
+
+
+include("../html/header.html");
+include("../acceuil/nav_bar.php");
+
 
 // Afficher les messages de succès ou d'erreur si disponibles
 if (isset($_SESSION['success_message'])) {
@@ -13,6 +17,7 @@ if (isset($_SESSION['error_message'])) {
     unset($_SESSION['error_message']); // Supprimer le message après l'affichage
 }
 
+
 echo "<fieldset><legend>Inscritpion</legend>
 <form method='post' action='Insertion.php'>
 <label>Nom d'utilisateur</label>
@@ -23,6 +28,4 @@ echo "<fieldset><legend>Inscritpion</legend>
 </form></fieldset>";
 
 
-
-
-include("footer.html");
+include("../html/footer.html");

@@ -1,5 +1,7 @@
 <?php
 
+
+
 echo "<style>
 form{
 display: flex;
@@ -25,7 +27,7 @@ form p{
 </style>";
 
 
-echo "<fieldset><legend>Create an account</legend>
+echo "<fieldset><legend>Désinscription</legend>
 <form method='post' action='Suppression.php'>
 <label>Username</label>
 <input type='text' name='username'>

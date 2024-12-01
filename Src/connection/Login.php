@@ -1,12 +1,17 @@
 <?php
-include("header.html");
-include("nav_bar.php");
+
+
+
+include("../html/header.html");
+include("../acceuil/nav_bar.php");
 
 
 if (isset($_SESSION['success_message_connexion'])) {
     echo "<p style='color: green;'>" . $_SESSION['success_message_connexion'] . "</p>";
-    unset($_SESSION['success_message_connexion']); // Supprimez le message après affichage
+    unset($_SESSION['success_message_connexion']); // Supprimer le message après affichage
 }
+
+
 echo "<fieldset><legend>Authentification</legend>
 <form method='post' action='Connexion.php'>
 <label>Nom d'utilisateur</label>
@@ -18,4 +23,4 @@ echo "<fieldset><legend>Authentification</legend>
 </form></fieldset>";
 
 
-include("footer.html");
+include("../html/footer.html");

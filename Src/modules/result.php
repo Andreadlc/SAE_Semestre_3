@@ -1,7 +1,11 @@
 <?php if (isset($result) && isset($lambda) && isset($mean) && isset($std_dev) && isset($mu) && isset($t) && isset($n)) : ?>
+
+
+
     <div style="width: 80%; max-width: 800px; height: 400px; margin: auto;">
         <canvas id="densityChart"></canvas>
     </div>
+
 
     <script>
         // Récupération des données depuis PHP
@@ -70,8 +74,8 @@
                 }
             }
         });
-
     </script>
+
 
     <fieldset>
         <legend>Résultats</legend>
@@ -93,6 +97,7 @@
             </tr>
         </table>
     </fieldset>
+
 
 <?php else: ?>
     <p>Veuillez soumettre le formulaire pour obtenir les résultats.</p>

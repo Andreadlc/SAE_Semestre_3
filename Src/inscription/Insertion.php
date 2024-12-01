@@ -1,5 +1,9 @@
 <?php
+
+
+
 session_start();  // Démarre la session pour utiliser $_SESSION
+
 
 // Si le formulaire a été soumis
 if (isset($_POST['ok'], $_POST['uname'], $_POST['password'])) {

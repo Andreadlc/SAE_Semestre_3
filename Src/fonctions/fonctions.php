@@ -1,5 +1,8 @@
 <?php
-function Captcha(){
+
+
+
+function Captcha() {
     $numbers=range(0,9);
     shuffle($numbers);
 
@@ -7,11 +10,11 @@ function Captcha(){
     $_SESSION['captcha']=$highlightednumbers;
 
     $l = '<div style="display: flex; gap=10px;">';
-    foreach($numbers as $number){
-        if($number==$highlightednumbers){
+    foreach($numbers as $number) {
+        if($number==$highlightednumbers) {
             $l.="<span style='font-weight: bold; color:red'>$number</span>";
 
-        }else{
+        } else {
             $l.="<span>$number</span>";
         }
 
