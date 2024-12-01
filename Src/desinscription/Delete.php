@@ -2,6 +2,10 @@
 
 
 
+include("../html/header.html");
+include("../acceuil/nav_bar.php");
+
+
 echo "<style>
 form{
 display: flex;
@@ -33,5 +37,8 @@ echo "<fieldset><legend>Désinscription</legend>
 <input type='text' name='username'>
     <label>Password</label>
 <input type='password' name='password'>
-    <input type='submit' name='ok' value='supprimer le compte de la BD'>
+    <input type='submit' name='ok' value='supprimer le compte'>
 </form></fieldset>";
+
+
+include("../html/footer.html");

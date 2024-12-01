@@ -27,6 +27,7 @@ session_start(); // Nécessaire pour accéder à $_SESSION
               echo '<li><a href="../modules/module.php">Module de Mathématiques</a></li>';
               echo '<li><a href="../connection/historique_module_maths.php">Historique du module</a></li>';
               echo '<li><a href="../connection/UserLg.php">Déconnexion</a></li>';
+              echo '<li><a href="../desinscription/Delete.php">Désinscription</a></li>';
           }
       } else {
           // Si l'utilisateur est un visiteur

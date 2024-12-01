@@ -63,11 +63,11 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             // Vérification si l'utilisateur et le mot de passe existent
             if (!$rowu || !$rowp) {
                 $_SESSION['i']++; // Incrémenter les tentatives
-                echo "Nom d'utilisateur ou mot de passe incorrect.";
+                echo "Nom d'utilisateur ou mot de passe incorrect";
             } else {
                 $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
                 $_SESSION['username'] = $uname; // Enregistre le nom d'utilisateur dans la session
-                $_SESSION['success_message_connexion'] = "Connexion reussite.";
+                $_SESSION['success_message_connexion'] = "Connexion reussie";
                 header("Location: ../modules/module.php"); // Redirige l'utilisateur vers la page des modules
                 exit();
             }

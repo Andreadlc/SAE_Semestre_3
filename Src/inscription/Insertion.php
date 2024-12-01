@@ -38,7 +38,7 @@ if (isset($_POST['ok'], $_POST['uname'], $_POST['password'])) {
 
         if ($row) {
             // Si l'utilisateur existe déjà, afficher un message d'erreur
-            $_SESSION['error_message'] = "Le nom d'utilisateur est déjà pris.";
+            $_SESSION['error_message'] = "Le nom d'utilisateur est déjà pris";
             header('Location: Create.php');  // Redirection vers la page d'inscription
             exit(); // Assurez-vous que le code s'arrête ici
         } else {
@@ -46,11 +46,11 @@ if (isset($_POST['ok'], $_POST['uname'], $_POST['password'])) {
             $insertql = "INSERT INTO $table (login, mdp) VALUES ('$uname', '$password_md5')";
 
             if (mysqli_query($co, $insertql)) {
-                $_SESSION['success_message'] = "Votre compte a été créé avec succès!";
+                $_SESSION['success_message'] = "Votre compte a été créé avec succès !";
                 header('Location: Create.php');  // Redirection après l'inscription réussie
                 exit(); // Assurez-vous que le code s'arrête ici
             } else {
-                $_SESSION['error_message'] = "Erreur d'insertion dans la base de données.";
+                $_SESSION['error_message'] = "Erreur d'insertion dans la base de données";
                 header('Location: Create.php');  // Redirection en cas d'erreur d'insertion
                 exit(); // Assurez-vous que le code s'arrête ici
             }
