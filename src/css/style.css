@@ -143,8 +143,8 @@ video {
 
 footer {
     text-align: center;
-    background-color: #8EACCD;
-    color: #ffbe8f;
+    color: #333333; /* Texte sombre */
+    background-color: #B4D4F1; /* Fond clair */
     padding: 20px;
 }
 
