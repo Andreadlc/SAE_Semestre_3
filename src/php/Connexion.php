@@ -7,7 +7,7 @@ include_once("Login.php");
 
 // Si l'utilisateur est déjà connecté, redirigez-le vers la page des historiques des calculs
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) {
-    header('Location: ../connection/historique_module_maths.php');
+    header('Location: historique_module_maths.php');
     exit();
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
         $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
         $_SESSION['username'] = 'admin'; // Facultatif : enregistrez l'username de l'utilisateur
         $_SESSION['success_message_connexion'] = "  Administrateur connecté";
-        header('Location: ../admin_reseau/historique_connexion.php');
+        header('Location: accueil.php');
         exit();
     }
 
@@ -69,7 +69,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
                 $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
                 $_SESSION['username'] = $uname; // Enregistre le nom d'utilisateur dans la session
                 $_SESSION['success_message_connexion'] = "  Vous êtes connecté";
-                header("Location: ../modules/module.php"); // Redirige l'utilisateur vers la page des modules
+                header("Location: accueil.php"); // Redirige l'utilisateur vers la page des modules
                 exit();
             }
         } else {

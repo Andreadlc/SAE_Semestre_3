@@ -2,7 +2,7 @@
 
 
 
-include("../fonctions/fonction_module_math.php");
+include("fonction_module_math.php");
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,7 +38,7 @@ $variance = pow($mu, 3) / $lambda;
 $std_dev = sqrt($variance);
 
 
-include("result.php");
+include("../js/result.php");
 ?>
 
 

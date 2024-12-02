@@ -45,7 +45,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
         if ($rowd) {
             mysqli_query($co, $deleteql);
             echo "Votre compte a été supprimé avec succès";
-            header('Location: ../connection/UserLg.php');
+            header('Location: UserLg.php');
         } else {
             echo "Données inexistantes";
         }

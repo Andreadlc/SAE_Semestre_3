@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Raleway";
-    src: url("./fonts/Raleway/static/Raleway-Regular.ttf");
+    src: url("fonts/Raleway/static/Raleway-Regular.ttf");
 }
 
 @font-face {
     font-family: "Lobster";
-    src: url("./fonts/Lobster/Lobster-Regular.ttf");
+    src: url("fonts/Lobster/Lobster-Regular.ttf");
 }
 
 @font-face {
     font-family: "Cutive Mono";
-    src: url("./fonts/Cutive_Mono/CutiveMono-Regular.ttf");
+    src: url("fonts/Cutive_Mono/CutiveMono-Regular.ttf");
 }
 
 /* Classes pour les polices spécifiques */

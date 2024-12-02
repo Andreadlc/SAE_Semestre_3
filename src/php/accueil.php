@@ -2,8 +2,8 @@
 
 
 
-include("../html/header.html");
-include("nav_bar.php");
+include("../includes/header.html");
+include("../includes/nav_bar.php");
 
 
 if (isset($_SESSION['success_message_connexion'])) {
@@ -12,8 +12,8 @@ if (isset($_SESSION['success_message_connexion'])) {
 }
 
 
-include("../html/main.html");
-include("../html/footer.html");
+include("../includes/main.html");
+include("../includes/footer.html");
 
 
 echo "</body></html>";
