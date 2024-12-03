@@ -27,12 +27,19 @@
 }
 
 
-
+html, body {
+    height: 100%; /* Permet au body de s'étendre sur toute la hauteur de la fenêtre */
+    margin: 0; /* Supprime les marges par défaut */
+}
 /* Styles de base */
 body {
     margin: 0;
-    background-color: #D2E0FB;
+    background-color:  #D2E0FB;
     font-family: "Raleway", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assure que la page occupe toute la hauteur de l'écran */
+
 }
 
 header {
@@ -119,6 +126,8 @@ nav ul li:hover .sous {
 
 main {
     padding: 20px 2%;
+    flex: 1;
+
 }
 
 main > h2 {
@@ -146,6 +155,7 @@ footer {
     color: #333333; /* Texte sombre */
     background-color: #B4D4F1; /* Fond clair */
     padding: 20px;
+    margin-top: auto;
 }
 
 footer > p {
@@ -194,18 +204,21 @@ form label {
 /* Style pour les champs d'entrée */
 form input[type="text"],
 form input[type="password"],
-form input[type="email"] {
+form input[type="email"],
+form select,
+form textarea {
     font-family: "Raleway", sans-serif;
     font-size: 1rem;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%; /* Prend toute la largeur du formulaire */
+    box-sizing: border-box; /* Empêche les débordements */
     background-color: #fff;
     transition: border-color 0.3s ease-in-out;
 }
+
 
 /* Focus sur les champs */
 form input[type="text"]:focus,
@@ -238,8 +251,12 @@ fieldset {
     border: 2px solid #8EACCD;
     border-radius: 8px;
     padding: 20px;
-    margin: auto;
+    margin: 20px auto; /* Centre le fieldset */
+    width: 100%; /* Assure que le fieldset utilise toute la largeur */
+    max-width: 800px; /* Optionnel : Limite la largeur sur les grands écrans */
+    box-sizing: border-box; /* Inclut les marges et bordures */
 }
+
 
 /* Style pour la légende */
 legend {
@@ -248,7 +265,9 @@ legend {
     color: #36541b;
     margin-bottom: 15px;
     text-align: center;
+    width: auto; /* Pour éviter un comportement étrange */
 }
+
 
 /* Responsive */
 @media (max-width: 480px) {
@@ -296,7 +315,7 @@ legend {
         padding: 10px;
     }
 
-    main > .ticket {
+    main > .math {
         width: 100%;
     }
 }

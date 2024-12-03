@@ -1,19 +1,23 @@
 <?php
 
-
-
-include("../includes/header.html");
-include("../includes/nav_bar.php");
-
-
 if (isset($_SESSION['success_message_connexion'])) {
     echo "<p style='color: green;'>" . $_SESSION['success_message_connexion'] . "</p>";
     unset($_SESSION['success_message_connexion']); // Supprimez le message après affichage
 }
 
 
-include("../includes/main.html");
-include("../includes/footer.html");
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php include("../includes/header.html"); ?>
+</head>
+<body>
+<?php include("../includes/nav_bar.php"); ?>
 
+<?php include("../includes/main.html"); ?>
 
-echo "</body></html>";
+<?php include("../includes/footer.html"); ?>
+</body>
+</html>
+

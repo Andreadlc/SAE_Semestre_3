@@ -4,7 +4,6 @@ session_start(); // Nécessaire pour accéder à $_SESSION
 
 
 
-<body>
 
 <header>
   <img src="../img/logo.png" alt="Logo du site">
