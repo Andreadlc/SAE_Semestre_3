@@ -24,7 +24,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
         $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
         $_SESSION['username'] = 'admin'; // Facultatif : enregistrez l'username de l'utilisateur
         $_SESSION['success_message_connexion'] = "  Administrateur connecté";
-        header('Location: accueil.php');
+        header('Location: Login.php');
         exit();
     }
 
@@ -69,7 +69,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
                 $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
                 $_SESSION['username'] = $uname; // Enregistre le nom d'utilisateur dans la session
                 $_SESSION['success_message_connexion'] = "  Vous êtes connecté";
-                header("Location: accueil.php"); // Redirige l'utilisateur vers la page des modules
+                header("Location: Login.php"); // Redirige l'utilisateur vers la page des modules
                 exit();
             }
         } else {
