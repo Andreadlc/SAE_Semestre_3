@@ -22,10 +22,10 @@ echo "<br><br><br>";
 
 echo "<fieldset><legend>Inscription</legend>
 <form method='post' action='Insertion.php'>
-<label>Nom d'utilisateur</label>
-<input type='text' name='uname' placeholder='Nom utilisateur'>
-    <label>Mot de passe</label>
-<input type='password' name='password'  placeholder='Mot de passe'>
+<label for='username'>Nom d'utilisateur</label>
+<input type='text' name='username' id='username' placeholder='Nom utilisateur'>
+    <label for='password'>Mot de passe</label>
+<input type='password' name='password' id='password'   placeholder='Mot de passe'>
     <input type='submit' name='ok' value='Créer le compte'>
     <br>
 </form></fieldset>";

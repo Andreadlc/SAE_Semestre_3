@@ -16,10 +16,10 @@ echo "<br><br><br>";
 
 echo "<fieldset><legend>Authentification</legend>
 <form method='post' action='Connexion.php'>
-<label>Nom d'utilisateur</label>
-<input type='text' name='username' placeholder='Nom utilisateur'>
-<label>Mot de passe</label>
-<input type='password' name='password' placeholder='Mot de passe'>
+<label for='username'>Nom d'utilisateur</label> 
+<input type='text' name='username' id='username' placeholder='Nom utilisateur'> <!-- Added id -->
+<label for='password'>Mot de passe</label> 
+<input type='password' name='password' id='password' placeholder='Mot de passe'> <!-- Added id -->
 <input type='submit' name='ok' value='Se connecter'>
 <br>
 </form></fieldset>";
