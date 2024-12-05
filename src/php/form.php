@@ -2,20 +2,17 @@
 echo "<br><br><br>";
 ?>
 
-
-
-
 <fieldset>
     <legend>Calculateur de probabilité - Loi inverse-gaussienne</legend>
-    <form method="post">
+    <form method="post" onsubmit="return validateForm()">
         <label for="mu">Espérance (μ) :</label>
-        <input type="number" step="any" name="mu" id="mu" required min="0"><br>
+        <input type="number" step="any" name="mu" id="mu" required min="1"><br>
 
         <label for="lambda">Forme (λ) :</label>
-        <input type="number" step="any" name="lambda" id="lambda" required min="0"><br>
+        <input type="number" step="any" name="lambda" id="lambda" required min="1"><br>
 
         <label for="t">Valeur t (P(X ≤ t)) :</label>
-        <input type="number" step="any" name="t" id="t" required min="0"><br>
+        <input type="number" step="any" name="t" id="t" required min="1"><br>
 
         <label for="n">Nombre de valeurs (n) :</label>
         <input type="number" name="n" id="n" min="1" required><br>
@@ -31,5 +28,17 @@ echo "<br><br><br>";
     </form>
 </fieldset>
 
-<br>
+<script>
+    function validateForm() {
+        const method = document.getElementById("method").value;
+        const n = parseInt(document.getElementById("n").value);
+
+        if (method === "simpson" && n % 2 !== 0) {
+            alert("Pour la méthode de Simpson, n doit être pair !");
+            return false; // Annule l'envoi du formulaire
+        }
+        return true; // Formulaire validé
+    }
+</script>
+
 

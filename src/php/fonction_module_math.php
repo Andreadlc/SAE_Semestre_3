@@ -11,7 +11,7 @@ function inverse_gaussian_pdf($x, $mu, $lambda) {
 }
 
 
-// Méthode des rectangles pour l'intégration numérique
+// Méthode des rectangles gauches pour l'intégration numérique
 function rectangle_method($a, $b, $n, $mu, $lambda) {
     $h = ($b - $a) / $n;
     $sum = 0;
@@ -37,6 +37,10 @@ function trapezoidal_method($a, $b, $n, $mu, $lambda) {
 
 // Méthode de Simpson pour l'intégration numérique
 function simpson_method($a, $b, $n, $mu, $lambda) {
+    if ($n % 2 != 0) {
+        return "Erreur : n doit être pair pour la méthode de Simpson";
+    }
+
     $h = ($b - $a) / $n;
     $sum = inverse_gaussian_pdf($a, $mu, $lambda) + inverse_gaussian_pdf($b, $mu, $lambda);
     for ($i = 1; $i < $n; $i += 2) {
@@ -50,17 +54,3 @@ function simpson_method($a, $b, $n, $mu, $lambda) {
     return $h * $sum / 3;
 }
 
-
-// Fonction principale pour calculer la probabilité
-function calculate_probability($mu, $lambda, $t, $n, $method) {
-    switch ($method) {
-        case 'rectangle':
-            return rectangle_method(0, $t, $n, $mu, $lambda);
-        case 'trapezoidal':
-            return trapezoidal_method(0, $t, $n, $mu, $lambda);
-        case 'simpson':
-            return simpson_method(0, $t, $n, $mu, $lambda);
-        default:
-            return "Méthode non reconnue";
-    }
-}
