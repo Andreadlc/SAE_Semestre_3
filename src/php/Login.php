@@ -2,8 +2,8 @@
 
 
 
-include("../includes/header.html");
-include("../includes/nav_bar.php");
+include("includes/header.html");
+include("includes/nav_bar.php");
 
 
 if (isset($_SESSION['success_message_connexion'])) {
@@ -25,4 +25,4 @@ echo "<fieldset><legend>Authentification</legend>
 </form></fieldset>";
 
 
-include("../includes/footer.html");
+include("includes/footer.html");

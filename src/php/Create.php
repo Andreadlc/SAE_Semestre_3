@@ -2,8 +2,8 @@
 
 
 
-include("../includes/header.html");
-include("../includes/nav_bar.php");
+include("includes/header.html");
+include("includes/nav_bar.php");
 
 
 // Afficher les messages de succès ou d'erreur si disponibles
@@ -31,4 +31,4 @@ echo "<fieldset><legend>Inscription</legend>
 </form></fieldset>";
 
 
-include("../includes/footer.html");
+include("includes/footer.html");

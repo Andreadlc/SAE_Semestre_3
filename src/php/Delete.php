@@ -2,8 +2,8 @@
 
 
 
-include("../includes/header.html");
-include("../includes/nav_bar.php");
+include("includes/header.html");
+include("includes/nav_bar.php");
 
 
 echo "<style>
@@ -45,4 +45,4 @@ echo "<fieldset><legend>Désinscription</legend>
 
 
 
-include("../includes/footer.html");
+include("includes/footer.html");

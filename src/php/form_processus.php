@@ -36,5 +36,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-include("../js/result.php");
+include("js/result.php");
 ?>
