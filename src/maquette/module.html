@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>My Math Result - Accueil</title>
+</head>
+<body>
+<header>
+    <img src="./img/logo.png" alt="Logo du site">
+    <h1>My Math Result</h1>
+</header>
+<nav>
+    <ul>
+        <li class="deroulant"><a href="index.html">Accueil &ensp;</a>
+            <ul class="sous">
+                <li><a href="#presentation">Présentation</a></li>
+                <li><a href="#video">Vidéo</a></li>
+            </ul></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="historique_module.html">Historique_module</a></li>
+        <li><a href="historique_connexion.html">Historique_connexion</a></li>
+        <li><a href="index.html">Déconnexion</a></li>
+    </ul>
+</nav>
+<main>
+    
+<fieldset>
+    <legend>Calculateur de probabilité - Loi inverse-gaussienne</legend>
+    <form>
+        <label for="mu">Espérance (μ) :</label>
+        <input type="number" step="any" name="mu" id="mu" required min="1"><br>
+
+        <label for="lambda">Forme (λ) :</label>
+        <input type="number" step="any" name="lambda" id="lambda" required min="1"><br>
+
+        <label for="t">Valeur t (P(X ≤ t)) :</label>
+        <input type="number" step="any" name="t" id="t" required min="1"><br>
+
+        <label for="n">Nombre de valeurs (n) :</label>
+        <input type="number" name="n" id="n" min="1" required><br>
+
+        <label for="method">Méthode de calcul :</label>
+        <select name="method" id="method">
+            <option value="rectangle">Méthode des rectangles</option>
+            <option value="trapezoidal">Méthode des trapèzes</option>
+            <option value="simpson">Méthode de Simpson</option>
+        </select><br>
+
+        <input type="submit" value="Calculer">
+    </form>
+</fieldset>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p><b>&copy; My Math Result - Tous droits réservés - Reproduction interdite</b></p>
+</footer>
+</body>
+</html>

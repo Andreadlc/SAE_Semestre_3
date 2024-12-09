@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logo.png" alt="Logo du site">
+        <h1>My Math Result</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="deroulant"><a href="index.html">Accueil &ensp;</a>
+                <ul class="sous">
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#video">Vidéo</a></li>
+                </ul></li>
+            <li><a href="Connexion.html">Connexion</a></li>
+            <li><a href="inscription.html">Inscription</a></li>
+        </ul>
+    </nav>
+
+
+
+    <fieldset>
+        <legend>Authentification</legend>
+        <form action="module.html" method="GET">
+            <h1>Formulaire de Connexion</h1>
+            <label for='login'>identifiant</label>
+            <input type = 'text' name = 'login'>
+            <br>
+            <label for='password'>mot de passe</label>
+            <input type = 'password' name = 'password'>
+            <br>
+            <div class="form-buttons">
+                <input type = 'submit' name = 'ok' value = 'Valider'>
+                <input type = 'reset' name = 'reset' value = 'Annuler'>
+            </div>
+            
+
+        </form>
+    </fieldset>
+
+
+    <footer>
+        <p><b>&copy; My Math Result - Tous droits réservés - Reproduction interdite</b></p>
+    </footer>
+</body>
+</html>

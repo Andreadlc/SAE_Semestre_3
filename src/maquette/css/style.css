@@ -1,0 +1,363 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("./fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lobster";
+    src: url("./fonts/Lobster/Lobster-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Cutive Mono";
+    src: url("./fonts/Cutive_Mono/CutiveMono-Regular.ttf");
+}
+
+/* Classes pour les polices spécifiques */
+.Cuti, .cuti2 {
+    font-family: "Cutive Mono", monospace;
+}
+
+.lobster2, .lobster {
+    font-family: "Lobster", cursive;
+}
+
+.raleway2, .raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+
+
+/* Styles de base */
+
+html, body {
+    height: 100%; /* Assure une couverture complète de la page */
+    margin: 0;
+    display: flex; /* Active Flexbox pour structurer le contenu */
+    flex-direction: column;
+}
+
+body {
+   
+    background-color: #D2E0FB;
+    font-family: "Raleway", sans-serif;
+    flex: 1; /* Le contenu principal prend tout l'espace disponible */
+    
+}
+
+header {
+    display: flex;
+    background-color: #8EACCD;
+    align-items: center;
+    padding: 10px;
+}
+
+header > img {
+    margin-left: 5%;
+    width: 64px;
+    height: 64px;
+}
+
+header > h1 {
+    font-size: 2.5rem;
+    margin-left: 5%;
+    font-family: "Lobster", cursive;
+}
+
+nav {
+    width: 100%;
+    background-color: #E2DAD6;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    font-family: "Raleway", sans-serif;
+    display: block;
+    text-decoration: none;
+    color: #36541b;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    border-top: 5px solid transparent;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+nav a:hover {
+    color: #4D3D3D;
+    border-top: 5px solid #E2DAD6;
+}
+
+nav ul li:hover .sous {
+    display: block;
+}
+
+.sous {
+    display: none;
+    background-color: #FEF9D9;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sous li {
+    width: 100%;
+    text-align: center;
+}
+
+.deroulant > a::after {
+    content: " ▼";
+    font-size: 12px;
+}
+
+main {
+    padding: 20px 2%;
+}
+
+main > h2 {
+    margin-top: 50px;
+    font-family: "Lobster", cursive;
+}
+
+main > .ticket {
+    border-radius: 15px;
+    background-color: #eaeaea;
+    padding: 25px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style général pour le formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style pour les labels */
+form label {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Style pour les champs d'entrée */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select,
+form textarea {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Prend toute la largeur du formulaire */
+    box-sizing: border-box; /* Empêche les débordements */
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+
+/* Focus sur les champs */
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+    border-color: #8EACCD;
+    outline: none;
+}
+
+/* Style pour le bouton */
+form input[type="submit"], input[type="reset"]{
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    background-color: #36541b; /* Dark green for better contrast */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+/* Effet hover sur le bouton */
+form input[type="reset"]:hover {
+    background-color: #2c4315;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2c4315;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between; /* Espace entre les boutons */
+    gap: 10px; /* Espacement entre les boutons */
+}
+
+.form-buttons input[type="submit"],
+.form-buttons input[type="reset"] {
+    width: calc(50% - 5px); /* Pour donner une largeur équilibrée */
+}
+
+
+/* Style pour le fieldset */
+fieldset {
+    border: 2px solid #8EACCD;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto; /* Centre le fieldset */
+    width: 100%; /* Assure que le fieldset utilise toute la largeur */
+    max-width: 800px; /* Optionnel : Limite la largeur sur les grands écrans */
+    box-sizing: border-box; /* Inclut les marges et bordures */
+}
+
+
+/* Style pour la légende */
+legend {
+    font-family: "Lobster", cursive;
+    font-size: 1.5rem;
+    color: #36541b;
+    margin-bottom: 15px;
+    text-align: center;
+    width: auto; /* Pour éviter un comportement étrange */
+}
+
+/* Style pour les tableaux */
+table {
+    width: 100%; /* Utilise toute la largeur disponible */
+    border-collapse: collapse; /* Supprime les espaces entre les bordures */
+    margin: 20px 0; /* Espace autour du tableau */
+    background-color: #f9f9f9; /* Fond clair */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet élégant */
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Empêche les débordements */
+}
+
+th, td {
+    text-align: center; /* Centre le texte */
+    padding: 12px 15px; /* Espace interne dans les cellules */
+    border: 1px solid #ddd; /* Bordures légères entre les cellules */
+    font-family: "Raleway", sans-serif; /* Police cohérente */
+}
+
+th {
+    background-color: #8EACCD; /* Couleur d'en-tête */
+    color: #fff; /* Couleur du texte d'en-tête */
+    font-weight: bold;
+    text-transform: uppercase; /* Texte en majuscule */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Lignes paires avec un fond différent */
+}
+
+tr:hover {
+    background-color: #d6e9ff; /* Couleur de survol */
+    transition: background-color 0.3s ease; /* Transition fluide */
+}
+
+caption {
+    margin-bottom: 10px; /* Espace sous la légende */
+    font-family: "Lobster", cursive; /* Style spécifique pour la légende */
+    font-size: 1.5rem;
+    color: #36541b;
+}
+
+
+
+footer {
+    text-align: center;
+    background-color: #8EACCD;
+    color: #ffbe8f;
+    padding: 20px;
+    margin-top: auto; /* Le pied de page reste en bas de la page */
+}
+
+footer > p {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+/* Média queries pour rendre la page responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header > img {
+        margin: 0 auto;
+        width: 48px;
+        height: 48px;
+    }
+
+    header > h1 {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    main > .ticket {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header > h1 {
+        font-size: 1.75rem;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+
+    main > h2 {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        font-size: 0.875rem;
+    }
+}
