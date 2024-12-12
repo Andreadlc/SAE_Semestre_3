@@ -267,13 +267,13 @@ table {
 th, td {
     text-align: center; /* Centre le texte */
     padding: 12px 15px; /* Espace interne dans les cellules */
-    border: 1px solid #ddd; /* Bordures légères entre les cellules */
+    border: 1px solid #303030; /* Bordures légères entre les cellules */
     font-family: "Raleway", sans-serif; /* Police cohérente */
 }
 
 th {
     background-color: #8EACCD; /* Couleur d'en-tête */
-    color: #fff; /* Couleur du texte d'en-tête */
+    color: #303030; /* Couleur du texte d'en-tête */
     font-weight: bold;
     text-transform: uppercase; /* Texte en majuscule */
 }
@@ -299,7 +299,7 @@ caption {
 footer {
     text-align: center;
     background-color: #8EACCD;
-    color: #ffbe8f;
+    color: #303030;
     padding: 20px;
     margin-top: auto; /* Le pied de page reste en bas de la page */
 }
