@@ -151,6 +151,10 @@ video {
 .presentation-video {
     width: 720px;
 }
+.accessibility-link {
+    color: rgb(0, 51, 102);
+    background-color: rgb(255, 255, 255);
+}
 
 
 /* Style général pour le formulaire */
