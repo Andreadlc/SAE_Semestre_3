@@ -148,6 +148,11 @@ video {
     height: auto;
 }
 
+.presentation-video {
+    width: 720px;
+}
+
+
 /* Style général pour le formulaire */
 form {
     display: flex;
