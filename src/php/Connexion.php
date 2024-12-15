@@ -20,7 +20,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
     $uname = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($uname == 'admin' && $password == 'admin') {
+    if ($uname == 'F.Hoguin' && $password == '192.168/FH') {
         $_SESSION['user_logged_in'] = true; // Marque l'utilisateur comme connecté
         $_SESSION['username'] = 'admin'; // Facultatif : enregistrez l'username de l'utilisateur
         $_SESSION['success_message_connexion'] = "  Administrateur connecté";
