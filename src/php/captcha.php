@@ -1,8 +1,5 @@
 <?php
-
-
-
-/*session_start();
+session_start();
 $code=rand(1000,9999);
 $_SESSION["code"]=$code;
 $image = imagecreatetruecolor(50, 24);
