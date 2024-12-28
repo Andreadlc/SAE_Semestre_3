@@ -1,4 +1,4 @@
-<?php if (isset($result) && isset($lambda) && isset($mean) && isset($std_dev) && isset($mu) && isset($t) && isset($n)) : ?>
+<?php if (isset($result) && isset($lambda) && isset($mean) && isset($std_dev) && isset($mu) && isset($t) && isset($n) && isset($method)) : ?>
 
     <!-- Section pour afficher la formule -->
     <br><br>
@@ -94,6 +94,8 @@
     </script>
 
     <br><br><br>
+    <!-- Résultats dans un tableau -->
+    <br><br><br>
     <fieldset>
         <legend>Résultats</legend>
 
@@ -111,6 +113,19 @@
                 <td><?php echo number_format($std_dev, 3); ?></td>
             </tr>
         </table>
+
+        <!-- Formulaire pour sauvegarder les résultats -->
+        <form action="sauvegarde_resultat.php" method="post">
+            <input type="hidden" name="result" value="<?php echo htmlspecialchars($result); ?>">
+            <input type="hidden" name="lambda" value="<?php echo htmlspecialchars($lambda); ?>">
+            <input type="hidden" name="mean" value="<?php echo htmlspecialchars($mean); ?>">
+            <input type="hidden" name="std_dev" value="<?php echo htmlspecialchars($std_dev); ?>">
+            <input type="hidden" name="mu" value="<?php echo htmlspecialchars($mu); ?>">
+            <input type="hidden" name="t" value="<?php echo htmlspecialchars($t); ?>">
+            <input type="hidden" name="n" value="<?php echo htmlspecialchars($n); ?>">
+            <input type="hidden" name="method" value="<?php echo htmlspecialchars($method); ?>">
+            <button type="submit" id="button_sauvegarde">Sauvegarder vos résultats</button>
+        </form>
     </fieldset>
 
 <?php else: ?>
