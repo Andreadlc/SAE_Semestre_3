@@ -1,59 +1,66 @@
 <?php
+session_start();
 
-
-
-include_once("Delete.php");
-
-
-if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
-
-    $uname = $_POST['username'];
-    $password = $_POST['password'];
+if (isset($_POST['ok'], $_POST['user_id'], $_POST['username'])) {
+    $user_id = intval($_POST['user_id']); // Récupère l'ID en tant qu'entier
+    $username = $_POST['username']; // Récupère le nom d'utilisateur
 
     // Connexion à la base de données
-    $co = mysqli_connect("localhost", "root", ""); // Utilisez "localhost" ici
-
-
+    $co = mysqli_connect("localhost", "root", "", "bd_sae");
     if (!$co) {
         die("La connexion a échoué : " . mysqli_connect_error());
     }
 
-    // Sélection de la base de données
-    $bd = mysqli_select_db($co, "test"); // Assurez-vous que "test" est bien le nom de votre base de données
-    if (!$bd) {
-        die("Impossible de sélectionner la base de données : " . mysqli_error($co));
+    // Vérifiez que l'administrateur ne supprime pas son propre compte
+    $admin_username = $_SESSION['username']; // Nom d'utilisateur de l'admin stocké en session
+    $check_admin_query = "SELECT id FROM utilisateur WHERE nom_utilisateur = ? AND id = ?";
+    $stmt_check_admin = mysqli_prepare($co, $check_admin_query);
+    mysqli_stmt_bind_param($stmt_check_admin, "si", $admin_username, $user_id);
+    mysqli_stmt_execute($stmt_check_admin);
+    $result_admin_check = mysqli_stmt_get_result($stmt_check_admin);
+
+    if ($result_admin_check && mysqli_num_rows($result_admin_check) > 0) {
+        $_SESSION['error_delete'] = "Vous ne pouvez pas supprimer votre propre compte.";
+        header("Location: delete.php");
+        exit();
     }
 
+    // Vérification de l'utilisateur : ID et nom d'utilisateur doivent correspondre
+    $verify_user_query = "SELECT id FROM utilisateur WHERE id = ? AND nom_utilisateur = ?";
+    $stmt_verify_user = mysqli_prepare($co, $verify_user_query);
+    mysqli_stmt_bind_param($stmt_verify_user, "is", $user_id, $username);
+    mysqli_stmt_execute($stmt_verify_user);
+    $result_verify_user = mysqli_stmt_get_result($stmt_verify_user);
 
-    // Définition des requêtes
-    $table = "client"; // Table où les données des utilisateurs sont stockées
+    if ($result_verify_user && mysqli_num_rows($result_verify_user) > 0) {
+        // Suppression de l'historique de l'utilisateur
+        $delete_history_query = "DELETE FROM resultat_probabilite WHERE utilisateur_id = ?";
+        $stmt_delete_history = mysqli_prepare($co, $delete_history_query);
+        mysqli_stmt_bind_param($stmt_delete_history, "i", $user_id);
+        mysqli_stmt_execute($stmt_delete_history);
 
-    // Hachage du mot de passe avec MD5
-    $password_md5 = md5($password); // Hash MD5 du mot de passe
+        // Suppression de l'utilisateur
+        $delete_user_query = "DELETE FROM utilisateur WHERE id = ?";
+        $stmt_delete_user = mysqli_prepare($co, $delete_user_query);
+        mysqli_stmt_bind_param($stmt_delete_user, "i", $user_id);
+        mysqli_stmt_execute($stmt_delete_user);
 
-    $dsureql = "SELECT * FROM $table WHERE login = '$uname' AND mdp = '$password_md5'"; // Requête de vérification des données
+        // Journalisation de la suppression
+        $log_message = "Admin: $admin_username a supprimé l'utilisateur : $username (ID: $user_id) à " . date('Y-m-d H:i:s') . "\n";
+        file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
 
-    $deleteql = "DELETE FROM $table WHERE login = '$uname' AND mdp = '$password_md5'"; // Requête de desinscription
-
-    // Exécution des requêtes de vérification
-    $resultd = mysqli_query($co, $dsureql);
-
-
-    if ($resultd) {
-        $rowd = mysqli_fetch_assoc($resultd);
-
-        if ($rowd) {
-            mysqli_query($co, $deleteql);
-            echo "Votre compte a été supprimé avec succès";
-            header('Location: UserLg.php');
-        } else {
-            echo "Données inexistantes";
-        }
+        $_SESSION['success_delete'] = "Compte supprimé avec succès.";
+        header("Location: delete.php");
     } else {
-        echo "Erreur de requête : " . mysqli_error($co);
+        $_SESSION['error_delete'] = "L'utilisateur avec cet ID et ce nom n'existe pas.";
+        header("Location: delete.php");
     }
 
-    // Fermer la connexion
+    // Fermeture des statements et de la connexion
+    mysqli_stmt_close($stmt_check_admin);
+    mysqli_stmt_close($stmt_verify_user);
+    mysqli_stmt_close($stmt_delete_history);
+    mysqli_stmt_close($stmt_delete_user);
     mysqli_close($co);
 }
 ?>
