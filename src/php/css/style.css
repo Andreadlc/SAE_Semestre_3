@@ -205,6 +205,7 @@ form label {
 form input[type="text"],
 form input[type="password"],
 form input[type="email"],
+form input[type="number"],
 form select,
 form textarea {
     font-family: "Raleway", sans-serif;
@@ -246,6 +247,23 @@ form input[type="submit"]:hover {
     background-color: #2c4315;
 }
 
+form button[type="submit"]{
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    background-color: #36541b; /* Dark green for better contrast */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Effet hover sur le bouton */
+form button[type="submit"]:hover {
+    background-color: #2c4315;
+}
+
 /* Style pour le fieldset */
 fieldset {
     border: 2px solid #8EACCD;
@@ -267,7 +285,139 @@ legend {
     text-align: center;
     width: auto; /* Pour éviter un comportement étrange */
 }
+/* Style pour le login */
+.login-container {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
 
+}
+
+.login-container p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    color: #006400;
+    font-weight: bold;
+}
+.registration-container{
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+.registration-container p{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main-container {
+    text-align: center;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.success_delete {
+    color: #006400;
+    font-weight: bold;
+}
+.error_delete {
+    color: #b22222;
+    font-weight: bold;
+}
+/* historique module */
+
+.historique_module {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.historique_module h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.historique_module table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.historique_module th, .historique_module td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.historique_module th {
+    background-color: #006400;
+    color: white;
+    text-transform: uppercase;
+}
+
+.historique_module tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.historique_module tr:hover {
+    background-color: #ddd;
+}
+
+.historique_module p {
+    text-align: center;
+    font-size: 16px;
+    color: #403f3f;
+}
+
+
+#csv_file {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+.log-container {
+    width: 80%; /* Limite la largeur à 80% de la page */
+    max-width: 55%; /* Fixe une largeur maximale */
+    margin: 20px auto; /* Centre le conteneur */
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: break-word; /* Coupe les longs mots pour éviter les débordements */
+    white-space: normal; /* Permet au texte de passer automatiquement à la ligne */
+}
+.error_message {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
 
 /* Responsive */
 @media (max-width: 480px) {
@@ -337,4 +487,42 @@ legend {
         font-size: 0.875rem;
     }
 }
+/* Responsive historique modul */
+@media screen and (max-width: 768px) {
+    .historique_module table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .historique_module th, .historique_module td {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .historique_module table, .historique_module thead, .historique_module tbody, .historique_module th, .historique_module td, .historique_module tr {
+        display: block;
+    }
+
+    .historique_module th {
+        display: none;
+    }
+
+    .historique_module td {
+        border: none;
+        padding: 10px;
+        position: relative;
+        text-align: left;
+    }
+
+    .historique_module td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #4CAF50;
+    }
+}
+
 
