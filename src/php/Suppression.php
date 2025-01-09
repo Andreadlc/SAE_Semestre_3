@@ -21,7 +21,7 @@ if (isset($_POST['ok'], $_POST['user_id'], $_POST['username'])) {
 
     if ($result_admin_check && mysqli_num_rows($result_admin_check) > 0) {
         $_SESSION['error_delete'] = "Vous ne pouvez pas supprimer votre propre compte.";
-        header("Location: delete.php");
+        header("Location: Delete.php");
         exit();
     }
 
@@ -50,10 +50,10 @@ if (isset($_POST['ok'], $_POST['user_id'], $_POST['username'])) {
         file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
 
         $_SESSION['success_delete'] = "Compte supprimé avec succès.";
-        header("Location: delete.php");
+        header("Location: Delete.php");
     } else {
         $_SESSION['error_delete'] = "L'utilisateur avec cet ID et ce nom n'existe pas.";
-        header("Location: delete.php");
+        header("Location: Delete.php");
     }
 
     // Fermeture des statements et de la connexion
