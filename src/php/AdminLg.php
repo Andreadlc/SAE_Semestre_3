@@ -8,7 +8,7 @@ session_start();
 
 // Vérifier si un utilisateur est connecté
 if (isset($_SESSION['username'])) {
-    // Récupérer le nom d'utilisateur avant de détruire la session
+    // Récupére le nom d'utilisateur avant de détruire la session
     $uname = $_SESSION['username'];
 
     // Message de log pour indiquer que l'utilisateur se déconnecte

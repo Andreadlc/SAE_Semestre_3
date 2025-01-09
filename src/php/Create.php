@@ -6,13 +6,13 @@ include("includes/nav_bar.php");
 
 <div class="registration-container">
     <?php
-    // Afficher les messages de succès ou d'erreur si disponibles
+    // Affiche les messages de succès ou d'erreur si disponibles
     if (isset($_SESSION['success_message'])) {
         echo "<p style='color: #006400; font-weight: bold;'>" . $_SESSION['success_message'] . "</p>";
-        unset($_SESSION['success_message']); // Supprimer le message après l'affichage
+        unset($_SESSION['success_message']); // Supprime le message après l'affichage
     } elseif (isset($_SESSION['error_message'])) {
         echo "<p style='color: #b22222; font-weight: bold;'>" . $_SESSION['error_message'] . "</p>";
-        unset($_SESSION['error_message']); // Supprimer le message après l'affichage
+        unset($_SESSION['error_message']); // Supprime le message après l'affichage
     }
     ?>
 

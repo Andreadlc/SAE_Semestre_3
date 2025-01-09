@@ -35,7 +35,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
 
         // Vérification de l'utilisateur et du mot de passe
         $table = "utilisateur";
-        $password_md5 = md5($password);  // Toujours mieux d'utiliser password_hash pour une meilleure sécurité
+        $password_md5 = md5($password);  // autre methode a utiliser password_hash pour une meilleure sécurité
 
         // Préparation de la requête pour vérifier le nom d'utilisateur et le mot de passe
         $sql = "SELECT * FROM $table WHERE nom_utilisateur = ? AND mot_de_passe = ?";

@@ -1,13 +1,8 @@
 <?php
 
-
-
 session_start();
-// Terminer la session
 
-
-
-// Vérifier si un utilisateur est connecté
+// Vérifie si un utilisateur est connecté
 if (isset($_SESSION['username'])) {
     // Récupérer le nom d'utilisateur avant de détruire la session
     $uname = $_SESSION['username'];
