@@ -6,8 +6,8 @@ session_start(); // Nécessaire pour accéder à $_SESSION
 
 
 <header>
-    <img src="img/logo.png" alt="Logo du site">
-    <h1>Math My Result</h1>
+    <img id='imgNav' src="img/logoBig.png" alt="Logo du site">
+    <h1 id='nomSite'>Math My Result</h1>
 </header>
 
 <nav>
