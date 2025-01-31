@@ -34,7 +34,7 @@ $result = mysqli_query($co, $sql);
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['nom_utilisateur']; ?></td>
-                    <td><?php echo $row['date_creation']; ?></td>
+                    <td><?php echo date("d/m/Y", strtotime($row['date_creation'])); ?></td>
                     <td>
 
                         <a href="Delete.php"><button type="submit">Supprimer</button></a>

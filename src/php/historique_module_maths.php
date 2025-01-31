@@ -55,7 +55,7 @@ $result = mysqli_stmt_get_result($stmt);
                     <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['valeur_probabilite']; ?></td>
                     <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['moyenne_x']; ?></td>
                     <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['ecart_type_sigma']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['date_calcul']; ?></td>
+                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo date("d/m/Y", strtotime($row['date_calcul'])); ?></td>
                 </tr>
             <?php endwhile; ?>
             </tbody>
