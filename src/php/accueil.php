@@ -10,9 +10,9 @@
 <?php include("includes/nav_bar.php"); ?>
 <div class="main-container">
     <?php
-    if (isset($_SESSION['success_message_connexion'])) {
-        echo "<p class='success-message'>" . $_SESSION['success_message_connexion'] . "</p>";
-        unset($_SESSION['success_message_connexion']);
+    if (isset($_SESSION['success_message'])) {
+        echo "<p class='success-message'>" . $_SESSION['success_message'] . "</p>";
+        unset($_SESSION['success_message']);
     }
     ?>
 </div>

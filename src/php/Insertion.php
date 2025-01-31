@@ -6,10 +6,17 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
         $uname = trim($_POST['username']);
         $password = trim($_POST['password']);
 
-        // Vérifier si le mot de passe est vide
-        if (empty($password)) {
-            $_SESSION['error_message'] = "Le mot de passe ne peut pas être vide.";
-            header('Location: Create.php');  // Redirection vers la page d'inscription
+        //  Vérifier que le nom d'utilisateur est valide (uniquement lettres et chiffres, au moins 5 caractères)
+        if (!preg_match('/^[A-Za-z0-9]{5,}$/', $uname)) {
+            $_SESSION['error_message'] = "Le nom d'utilisateur doit contenir uniquement des lettres et chiffres et au moins 5 caractères.";
+            header('Location: Create.php');
+            exit();
+        }
+
+        //  Vérifier que le mot de passe contient au moins 8 caractères
+        if (strlen($password) < 8) {
+            $_SESSION['error_message'] = "Le mot de passe doit contenir au moins 8 caractères.";
+            header('Location: Create.php');
             exit();
         }
 
@@ -46,10 +53,10 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             mysqli_stmt_bind_param($stmt_insert, 'ssi', $uname, $password_md5, $role);
 
             if (mysqli_stmt_execute($stmt_insert)) {
-                $_SESSION['success_message'] = "Votre compte a été créé avec succès !";
+                $_SESSION['success_message'] = "Votre compte a été créé avec succès, vous pouvez maintenant vous connecter !";
                 $log_message = "compte a été créé avec succès pour l'utilisateur: $uname à " . date('Y-m-d H:i:s') . "\n";  // Ajout du retour à la ligne
                 file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);  // Ajout du message dans le fichier de log
-                header('Location: Create.php');
+                header('Location: Login.php');
                 exit();
             } else {
                 $_SESSION['error_message'] = "Erreur d'insertion dans la base de données.";

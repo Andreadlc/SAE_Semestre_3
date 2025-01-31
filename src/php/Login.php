@@ -9,9 +9,9 @@ include("includes/nav_bar.php");
         if (isset($_SESSION['error_message'])) {
             echo "<p style='color: #b22222; font-weight: bold;'>" . $_SESSION['error_message'] . "</p>";
             unset($_SESSION['error_message']); // Supprimez le message après l'avoir affiché
-        } elseif (isset($_SESSION['success_message_connexion'])) {
-            echo "<p style='color: #006400; font-weight: bold;'>" . $_SESSION['success_message_connexion'] . "</p>";
-            unset($_SESSION['success_message_connexion']); // Supprimez le message après l'avoir affiché
+        } elseif (isset($_SESSION['success_message'])) {
+            echo "<p style='color: #006400; font-weight: bold;'>" . $_SESSION['success_message'] . "</p>";
+            unset($_SESSION['success_message']); // Supprimez le message après l'avoir affiché
         }
         ?>
 

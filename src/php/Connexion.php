@@ -56,15 +56,15 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             // Redirection selon le rôle
             if ($user['role'] == 0) {
                 // Utilisateur normal
-                $_SESSION['success_message_connexion'] = "Bienvenue Utilisateur !";
+                $_SESSION['success_message'] = "Bienvenue Utilisateur !";
                 header("Location: accueil.php");
             } elseif ($user['role'] == 1) {
                 // Administrateur web
-                $_SESSION['success_message_connexion'] = "Administrateur web connecté";
+                $_SESSION['success_message'] = "Administrateur web connecté";
                 header("Location: accueil.php");
             } elseif ($user['role'] == 2) {
                 // Administrateur système
-                $_SESSION['success_message_connexion'] = "Administrateur système connecté";
+                $_SESSION['success_message'] = "Administrateur système connecté";
                 header("Location: accueil.php");
             }
 
