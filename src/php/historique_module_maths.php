@@ -24,47 +24,55 @@ mysqli_stmt_bind_param($stmt, 'i', $utilisateur_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
-?>
+?><fieldset>
+    <legend>
+        <h3>Historique des Calculs</h3>
+    </legend>
+    <div class="historique_module">
 
-<div class="historique_module">
-    <h1>Historique des Calculs</h1>
-
-    <?php if (mysqli_num_rows($result) > 0): ?>
-        <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px;">Espérance (μ)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Forme (λ)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Valeur (t)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Nombre de valeurs (n)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Méthode de calcul</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Valeur de probabilité</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Moyenne (X̄)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Écart-type (σ)</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <?php if (mysqli_num_rows($result) > 0): ?>
+            <table>
+                <thead>
                 <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['esperance_mu']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['forme_lambda']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['valeur_t']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['nombre_valeurs_n']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['methode_calcul']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['valeur_probabilite']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['moyenne_x']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $row['ecart_type_sigma']; ?></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;"><?php echo date("d/m/Y", strtotime($row['date_calcul'])); ?></td>
+                    <th>Date</th>
+                    <th>Méthode</th>
+                    <th>Valeur de probabilité</th>
+                    <th><span class="sr-only">Colonne vide</span></th>
+                    <th>Moyenne (X̄)</th>
+                    <th>Écart-type (σ)</th>
+                    <th>Espérance (μ)</th>
+                    <th>Forme (λ)</th>
+                    <th>Valeur (t)</th>
+                    <th>Nombre (n)</th>
                 </tr>
-            <?php endwhile; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>Aucun résultat trouvé.</p>
-    <?php endif; ?>
+                </thead>
+                <tbody>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?php echo date("d/m/Y", strtotime($row['date_calcul'])); ?></td>
+                        <td><?php echo $row['methode_calcul']; ?></td>
+                        <td><?php echo $row['valeur_probabilite']; ?></td>
+                        <td></td>
+                        <td><?php echo $row['moyenne_x']; ?></td>
+                        <td><?php echo $row['ecart_type_sigma']; ?></td>
+                        <td><?php echo $row['esperance_mu']; ?></td>
+                        <td><?php echo $row['forme_lambda']; ?></td>
+                        <td><?php echo $row['valeur_t']; ?></td>
+                        <td><?php echo $row['nombre_valeurs_n']; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>Aucun résultat trouvé.</p>
+        <?php endif; ?>
+    </div>
+</fieldset>
 
-</div>
+
+
+
+
 
 <?php
 mysqli_stmt_close($stmt);

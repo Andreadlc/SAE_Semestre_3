@@ -336,7 +336,6 @@ legend {
     font-weight: bold;
 }
 
-
 /* historique module */
 .historique_module {
     margin: 20px;
@@ -366,7 +365,13 @@ legend {
     background-color: #006400;
     color: white;
     text-transform: uppercase;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #ddd; /* Garde juste une ligne en bas */
 }
+
+
 .historique_module tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -378,6 +383,29 @@ legend {
     font-size: 16px;
     color: #403f3f;
 }
+
+
+.historique_module td:nth-child(1),
+.historique_module td:nth-child(2),
+.historique_module td:nth-child(3)
+{
+    font-weight: bold; /* Mettre en gras */
+
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+
 #csv_file {
     width: 100%;
     padding: 8px;
