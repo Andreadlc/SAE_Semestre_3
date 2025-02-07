@@ -26,6 +26,6 @@ function rc4($key, $data) {
         $k = $s[($s[$i] + $s[$j]) % 256]; // La clé générée à chaque itération
         $result .= chr(ord($data[$c]) ^ $k); // XOR entre le texte et la clé générée
     }
-
+    return $result;
 }
 ?>
