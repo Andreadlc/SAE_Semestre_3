@@ -1,10 +1,12 @@
 <?php
 session_start();
+include("ChiffrementRC4/rc4.php");  // Inclusion de RC4
 // Si le formulaire a été soumis
 if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
     if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
         $uname = trim($_POST['username']);
         $password = trim($_POST['password']);
+        $key = "MaCleSecreteRC4";  // Clé pour RC4
 
         //  Vérifier que le nom d'utilisateur est valide (uniquement lettres et chiffres, au moins 5 caractères)
         if (!preg_match('/^[A-Za-z0-9]{5,}$/', $uname)) {
@@ -29,8 +31,9 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
 
         $table = "utilisateur"; // Table des utilisateurs
 
-        // Hachage du mot de passe
-        $password_md5 = md5($password);
+        // Chiffrement du mot de passe avec RC4
+
+        $password_encrypted = bin2hex(rc4($key, $password)); // Convertir en hexadécimal
 
         // Vérifier si l'utilisateur existe déjà
         $sureql = "SELECT * FROM $table WHERE nom_utilisateur = ?";
