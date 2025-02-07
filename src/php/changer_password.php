@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("ChiffrementRC4/rc4.php");  // Inclusion de RC4
 
 // Vérifiez si l'utilisateur est connecté
 if (!isset($_SESSION['user_logged_in']) || !$_SESSION['user_logged_in']) {
@@ -19,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $old_password = $_POST['old_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
+    $key = "MaCleSecreteRC4"; // Clé pour RC4
 
     // Vérification de l'ancien mot de passe
     $sql = "SELECT mot_de_passe FROM utilisateur WHERE id = ?";
@@ -31,13 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Libére le résultat de la requête SELECT avant d'en exécuter une autre
     mysqli_stmt_free_result($stmt);
 
-    if (md5($old_password) != $stored_password) {
+    // Chiffrement du mot de passe saisi avec RC4
+    $old_password_encrypted = bin2hex(rc4($key, $old_password));
+
+    if ($old_password_encrypted != $stored_password) {
         $_SESSION['error_message'] = "L'ancien mot de passe est incorrect.";
     } elseif ($new_password !== $confirm_password) {
         $_SESSION['error_message'] = "Les nouveaux mots de passe ne correspondent pas.";
     } else {
+        // Chiffrement du nouveau mot de passe avec RC4
+        $new_password_encrypted = bin2hex(rc4($key, $new_password));
+
         // Mise à jour du mot de passe
-        $new_password_md5 = md5($new_password); 
         $update_sql = "UPDATE utilisateur SET mot_de_passe = ? WHERE id = ?";
         $update_stmt = mysqli_prepare($co, $update_sql);
         mysqli_stmt_bind_param($update_stmt, 'si', $new_password_md5, $user_id);
