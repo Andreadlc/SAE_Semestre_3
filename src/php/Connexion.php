@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("ChiffrementRC4/rc4.php");  // Inclusion de RC4
 
 // Si l'utilisateur est déjà connecté, redirige vers l'historique des calculs
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) {
@@ -16,6 +17,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
     if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
         $uname = $_POST['username'];
         $password = $_POST['password'];
+        $key = "MaCleSecreteRC4";  // Clé pour RC4
 
         // Connexion à la base de données
         $co = mysqli_connect("localhost", "root", "", "bd_sae");
@@ -35,12 +37,14 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
 
         // Vérification de l'utilisateur et du mot de passe
         $table = "utilisateur";
-        $password_md5 = md5($password);  // autre methode a utiliser password_hash pour une meilleure sécurité
+        // Chiffrement du mot de passe entré avec RC4
+        $password_encrypted = bin2hex(rc4($key, $password)); // Chiffrement et conversion en hexadécimal
+
 
         // Préparation de la requête pour vérifier le nom d'utilisateur et le mot de passe
         $sql = "SELECT * FROM $table WHERE nom_utilisateur = ? AND mot_de_passe = ?";
         $stmt = mysqli_prepare($co, $sql);
-        mysqli_stmt_bind_param($stmt, 'ss', $uname, $password_md5);
+        mysqli_stmt_bind_param($stmt, 'ss', $uname, $password_encrypted);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
