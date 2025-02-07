@@ -53,7 +53,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             // Insérer les données
             $insertql = "INSERT INTO $table (nom_utilisateur, mot_de_passe, role) VALUES (?, ?, ?)";
             $stmt_insert = mysqli_prepare($co, $insertql);
-            mysqli_stmt_bind_param($stmt_insert, 'ssi', $uname, $password_md5, $role);
+            mysqli_stmt_bind_param($stmt_insert, 'ssi', $uname, $password_encrypted, $role);
 
             if (mysqli_stmt_execute($stmt_insert)) {
                 $_SESSION['success_message'] = "Votre compte a été créé avec succès, vous pouvez maintenant vous connecter !";
