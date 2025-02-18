@@ -37,9 +37,7 @@ function trapezoidal_method($a, $b, $n, $mu, $lambda) {
 
 // Méthode de Simpson pour l'intégration numérique
 function simpson_method($a, $b, $n, $mu, $lambda) {
-    if ($n % 2 != 0) {
-        return "Erreur : n doit être pair pour la méthode de Simpson";
-    }
+
 
     $h = ($b - $a) / $n;
     $sum = inverse_gaussian_pdf($a, $mu, $lambda) + inverse_gaussian_pdf($b, $mu, $lambda);

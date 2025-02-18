@@ -46,10 +46,11 @@
             yValues.push(isNaN(y) || !isFinite(y) ? 0 : y);
 
             // Calcul des aires des rectangles
-            if (i < n) {
+            if (i <= n) {
                 rectAreas.push({ x: x, y: y });
                 totalArea += y * h;
             }
+
         }
 
         // Tracé du graphique
@@ -110,7 +111,7 @@
                 <td><?php echo number_format($result, 3); ?></td>
                 <td><?php echo $lambda; ?></td>
                 <td><?php echo $mean; ?></td>
-                <td><?php echo number_format($std_dev, 3); ?></td>
+                <td><?php echo number_format($std_dev); ?></td>
             </tr>
         </table>
 
