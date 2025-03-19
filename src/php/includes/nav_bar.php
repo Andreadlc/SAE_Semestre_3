@@ -28,6 +28,7 @@ session_start(); // Nécessaire pour accéder à $_SESSION
             } else { // Utilisateur normal (role == 0)
                 echo '<li><a href="module.php">Module de Mathématiques</a></li>';
                 echo '<li><a href="module_crypto.php">Cryptographie</a></li>';
+                echo '<li><a href="module_polynome.php">Polynome</a></li>';
                 echo '<li><a href="historique_module_maths.php">Historique du module</a></li>';
                 echo '<li><a href="form_change_password.php">Changer mon mot de passe</a></li>';
                 echo '<li><a href="UserLg.php">Déconnexion</a></li>';
