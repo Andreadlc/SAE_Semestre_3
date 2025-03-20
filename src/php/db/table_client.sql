@@ -2,7 +2,7 @@ CREATE TABLE utilisateur (
                              id INT AUTO_INCREMENT PRIMARY KEY,
                              nom_utilisateur VARCHAR(255) NOT NULL UNIQUE,
                              mot_de_passe VARCHAR(255) NOT NULL,
-			     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                             date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                              role INT NOT NULL
 );
 
@@ -20,3 +20,27 @@ CREATE TABLE resultat_probabilite (
                                       date_calcul TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Date et heure du calcul
                                       FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) -- Clé étrangère liée à la table utilisateur
 );
+CREATE TABLE resultat_polynome (
+                                   id INT AUTO_INCREMENT PRIMARY KEY,                -- Identifiant unique du calcul
+                                   utilisateur_id INT NOT NULL,                       -- Identifiant de l'utilisateur qui a effectué le calcul
+                                   coefficient_a FLOAT NOT NULL,                      -- Coefficient a de l'équation quadratique
+                                   coefficient_b FLOAT NOT NULL,                      -- Coefficient b de l'équation quadratique
+                                   coefficient_c FLOAT NOT NULL,                      -- Coefficient c de l'équation quadratique
+                                   discriminant FLOAT NOT NULL,                       -- Valeur du discriminant
+                                   racine_1 VARCHAR(255) NOT NULL,                     -- Première racine sous forme de chaîne (par exemple "1-2i" ou "1+2i")
+                                   racine_2 VARCHAR(255) NOT NULL,                     -- Deuxième racine sous forme de chaîne (par exemple "1+2i" ou "1-2i")
+                                   date_calcul TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- Date et heure du calcul
+                                   FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)  -- Clé étrangère liée à la table utilisateur
+);
+
+CREATE TABLE historique_crypto (
+                                   id INT AUTO_INCREMENT PRIMARY KEY,
+                                   utilisateur_id INT NOT NULL,
+                                   cle VARCHAR(255) NOT NULL,
+                                   text TEXT NOT NULL,
+                                   operation ENUM('chiffrement', 'dechiffrement') NOT NULL,
+                                   date_calcul TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                   texte_original TEXT NOT NULL,
+                                   FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
+);
+
