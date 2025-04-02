@@ -46,7 +46,7 @@ $result = mysqli_query($co, $sql);
             </tbody>
         </table>
         <br>
-        <a href="import_csv.php">Importer un fichier CSV</a>
+        <a href="import_json.php">Importer un fichier JSON</a>
     </fieldset>
 
 

@@ -21,6 +21,7 @@ session_start(); // Nécessaire pour accéder à $_SESSION
                 echo '<li><a href="module.php">Module de Mathématiques</a></li>';
                 echo '<li><a href="historique_connexion.php">Historique des connexions</a></li>';
                 echo '<li><a href="Delete.php">Désinscription</a></li>';
+                echo '<li><a href="Create.php">Inscription</a></li>';
                 echo '<li><a href="AdminLg.php">Déconnexion</a></li>';
             } elseif ($_SESSION['role'] == 2) { // Administrateur système
                 echo '<li><a href="adminsystem.php">Administration</a></li>';

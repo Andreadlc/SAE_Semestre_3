@@ -32,7 +32,6 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
         $table = "utilisateur";
 
         // Chiffrement du mot de passe avec RC4
-
         $password_encrypted = bin2hex(rc4($key, $password)); // Convertir en hexadécimal
 
         // Vérifier si l'utilisateur existe déjà
@@ -47,7 +46,7 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             header('Location: Create.php');
             exit();
         } else {
-            $role = 0;
+            $role = 0; // Rôle par défaut pour un utilisateur standard
 
             // Insérer les données avec le mot de passe chiffré
             $insertql = "INSERT INTO $table (nom_utilisateur, mot_de_passe, role) VALUES (?, ?, ?)";
@@ -57,7 +56,13 @@ if (isset($_POST['ok'], $_POST['username'], $_POST['password'])) {
             if (mysqli_stmt_execute($stmt_insert)) {
                 $_SESSION['success_message'] = "Votre compte a été créé avec succès !";
                 file_put_contents("logs/suppressions.log", "Utilisateur inscrit: $uname - " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                header('Location: Login.php');
+
+                // Si c'est un administrateur, redirige vers la page d'administration
+                if ($_SESSION['role'] == 1) {
+                    header('Location: Create.php');  // Redirige l'admin vers la page d'administration
+                } else {
+                    header('Location: Login.php');  // Si ce n'est pas un admin, redirige vers la page de connexion
+                }
                 exit();
             } else {
                 $_SESSION['error_message'] = "Erreur d'insertion dans la base de données.";
