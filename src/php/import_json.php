@@ -2,7 +2,7 @@
 
 include("includes/header.html");
 include("includes/nav_bar.php");
-
+include("ChiffrementRC4/rc4.php");
 // Vérifie si l'utilisateur est administrateur
 if ($_SESSION['role'] != 1) {
     header('Location: acces_refuser.php');
@@ -13,6 +13,7 @@ if ($_SESSION['role'] != 1) {
 $success_message = "";
 $error_message = "";
 $no_import_message = ""; // Message lorsque aucun utilisateur n'est importé
+$key = "MaCleSecreteRC4";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Connexion à la base de données
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Validation des données
                 if (isset($user['nom_utilisateur'], $user['mot_de_passe'], $user['role'])) {
                     $username = mysqli_real_escape_string($co, $user['nom_utilisateur']);
-                    $password = md5($user['mot_de_passe']); // Mot de passe (chiffré en MD5 ici)
+                    $password = bin2hex(rc4($key, $user['mot_de_passe']));
                     $role = intval($user['role']); // Rôle (doit être un entier)
 
                     // Vérification si l'utilisateur existe déjà dans la base de données
