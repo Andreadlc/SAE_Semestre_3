@@ -37,20 +37,54 @@ if (isset($_POST['ok'], $_POST['user_id'], $_POST['username'])) {
         $delete_history_query = "DELETE FROM resultat_probabilite WHERE utilisateur_id = ?";
         $stmt_delete_history = mysqli_prepare($co, $delete_history_query);
         mysqli_stmt_bind_param($stmt_delete_history, "i", $user_id);
-        mysqli_stmt_execute($stmt_delete_history);
+        if (mysqli_stmt_execute($stmt_delete_history)) {
+            $log_message = "Suppression de l'historique de probabilités pour l'utilisateur ID: $user_id\n";
+            file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
+        } else {
+            $_SESSION['error_delete'] = "Erreur lors de la suppression de l'historique de probabilités.";
+            header("Location: Delete.php");
+            exit();
+        }
+
+        $delete_history_query2 = "DELETE FROM resultat_polynome WHERE utilisateur_id = ?";
+        $stmt_delete_history2 = mysqli_prepare($co, $delete_history_query2);
+        mysqli_stmt_bind_param($stmt_delete_history2, "i", $user_id);
+        if (mysqli_stmt_execute($stmt_delete_history2)) {
+            $log_message = "Suppression de l'historique des polynômes pour l'utilisateur ID: $user_id\n";
+            file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
+        } else {
+            $_SESSION['error_delete'] = "Erreur lors de la suppression de l'historique des polynômes.";
+            header("Location: Delete.php");
+            exit();
+        }
+
+        $delete_history_query3 = "DELETE FROM historique_crypto WHERE utilisateur_id = ?";
+        $stmt_delete_history3 = mysqli_prepare($co, $delete_history_query3);
+        mysqli_stmt_bind_param($stmt_delete_history3, "i", $user_id);
+        if (mysqli_stmt_execute($stmt_delete_history3)) {
+            $log_message = "Suppression de l'historique de crypto-monnaie pour l'utilisateur ID: $user_id\n";
+            file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
+        } else {
+            $_SESSION['error_delete'] = "Erreur lors de la suppression de l'historique de crypto-monnaie.";
+            header("Location: Delete.php");
+            exit();
+        }
 
         // Suppression de l'utilisateur
         $delete_user_query = "DELETE FROM utilisateur WHERE id = ?";
         $stmt_delete_user = mysqli_prepare($co, $delete_user_query);
         mysqli_stmt_bind_param($stmt_delete_user, "i", $user_id);
-        mysqli_stmt_execute($stmt_delete_user);
+        if (mysqli_stmt_execute($stmt_delete_user)) {
+            // Journalisation de la suppression de l'utilisateur
+            $log_message = "Admin: $admin_username a supprimé l'utilisateur : $username (ID: $user_id) à " . date('Y-m-d H:i:s') . "\n";
+            file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
 
-        // Journalisation de la suppression
-        $log_message = "Admin: $admin_username a supprimé l'utilisateur : $username (ID: $user_id) à " . date('Y-m-d H:i:s') . "\n";
-        file_put_contents("logs/suppressions.log", $log_message, FILE_APPEND);
-
-        $_SESSION['success_delete'] = "Compte supprimé avec succès.";
-        header("Location: Delete.php");
+            $_SESSION['success_delete'] = "Compte supprimé avec succès.";
+            header("Location: Delete.php");
+        } else {
+            $_SESSION['error_delete'] = "Erreur lors de la suppression du compte utilisateur.";
+            header("Location: Delete.php");
+        }
     } else {
         $_SESSION['error_delete'] = "L'utilisateur avec cet ID et ce nom n'existe pas.";
         header("Location: Delete.php");
@@ -60,6 +94,8 @@ if (isset($_POST['ok'], $_POST['user_id'], $_POST['username'])) {
     mysqli_stmt_close($stmt_check_admin);
     mysqli_stmt_close($stmt_verify_user);
     mysqli_stmt_close($stmt_delete_history);
+    mysqli_stmt_close($stmt_delete_history2);
+    mysqli_stmt_close($stmt_delete_history3);
     mysqli_stmt_close($stmt_delete_user);
     mysqli_close($co);
 }
