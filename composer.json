@@ -1,0 +1,13 @@
+{
+    "name": "andrea/sae_semestre_3",
+    "description": "Projet pour le semestre 3",
+    "require": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Andrea\\SaeSemestre3\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
